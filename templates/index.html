@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
 
-{% block head %}{% endblock %}
-
-{% block body %}  <h1> Damn this work </h1> {% endblock %}
+{% block head %}
+<title> Task Master </title>
+{% endblock %}
+{% block body %}
+    <h1> Task Master </h1>
+    <table class="table">
+        {$ for $}
+        <tr>
+            <th> Task </th>
+            <th> Date Added </th>
+            <th> Actions </th>
+        </tr>
+        <tr> {{ task.content }} </tr>
+        <tr> {{task.date_created}} </tr>
+        <tr>
+            <a href="/delete/">Delete</a><br>
+            <a href="/update/">Update</a>
+        </tr>
+    </table>
+{% endblock %}

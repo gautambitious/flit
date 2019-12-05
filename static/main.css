@@ -1,4 +1,6 @@
 body{
-    margin: 100px;
     font-family: "Comic Sans MS";
+}
+.table{
+    border: 2px;
 }
