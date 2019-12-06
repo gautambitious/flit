@@ -1,3 +1,17 @@
 body{
     font-family: "Comic Sans MS";
 }
+table, tr, th{
+    border: solid 1px;
+}
+.center{
+    margin: 0 auto;
+    width: 600px;
+}
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+div{
+    text-align: center;
+}

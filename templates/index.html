@@ -4,20 +4,36 @@
 <title> Task Master </title>
 {% endblock %}
 {% block body %}
-<div class="content"/>
+<div class="center">
     <h1> Task Master </h1>
+    {% if tasks|length < 1 %}
+    <h4> Add a new Task to get started </h4>
+    {% else %}
+    <div>
     <table class="tb">
-        {$ for $}
         <tr>
             <th> Task </th>
             <th> Date Added </th>
             <th> Actions </th>
         </tr>
-        <tr> {{ task.content }} </tr>
-        <tr> {{task.date_created}} </tr>
+        {% for task in tasks %}
         <tr>
-            <a href="/delete/">Delete</a><br>
-            <a href="/update/">Update</a>
+            <th> {{task.content}} </th>
+            <th> {{task.date_created.date()}} </th>
+            <th>
+            <a href="/delete/{{task.id}}">Delete</a><br>
+            <a href="/update/{{task.id}}">Update</a>
+            </th>
         </tr>
+        {% endfor %}
     </table>
+    </div>
+    {% endif %}
+    <div class="form">
+        <form action="/" method="post">
+            <input type="text" name="content" id="content">
+            <input type="submit" name="submit" value="Add Task">
+        </form>
+    </div>
+</div>
 {% endblock %}
